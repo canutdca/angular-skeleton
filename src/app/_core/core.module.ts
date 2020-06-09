@@ -1,6 +1,5 @@
 
 import { EnsureModuleLoadedOnceGuard } from './ensure-module-loaded-once.guard'
-import { CommonModule } from '@angular/common'
 import { RouterModule } from '@angular/router'
 import { NgModule, Optional, SkipSelf } from '@angular/core'
 import { NavbarComponent } from './components/navbar/navbar.component'
@@ -8,15 +7,14 @@ import { AuthService } from './services/auth.service'
 import { StoreModule } from '@ngrx/store'
 import { EffectsModule } from '@ngrx/effects'
 import { StoreDevtoolsModule } from '@ngrx/store-devtools'
-import { metaReducers } from './stores/logged-store/logged.reducer'
 import { environment } from 'src/environments/environment'
 import { LoggedGetter } from './stores/logged-store/logged.getters'
+import { reducers, metaReducers } from './stores/app.store'
 
 @NgModule({
 	imports: [
-		CommonModule,
 		RouterModule,
-		StoreModule.forRoot({}, { metaReducers }),
+		StoreModule.forRoot(reducers, { metaReducers }),
 		EffectsModule.forRoot([]),
 		!environment.production ? StoreDevtoolsModule.instrument() : []
 	],

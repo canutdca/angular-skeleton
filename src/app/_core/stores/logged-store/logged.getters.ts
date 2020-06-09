@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core'
 import { Store, createSelector, createFeatureSelector, select } from '@ngrx/store'
 import LoggedState from './logged.state'
 
-const getEntityState = createFeatureSelector<LoggedState>('LoggedState')
+const getEntityState = createFeatureSelector<LoggedState>('loggedState')
 
 const getUser = createSelector(
   getEntityState,

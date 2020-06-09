@@ -1,1 +1,8 @@
 <p>clients works!</p>
+
+<button (click)="add()">ADD</button> <input type="text" [(ngModel)]="newClientName">
+<button (click)="clear()">CLEAR</button>
+
+<div *ngFor="let client of clients" >
+	{{ client.name }} ({{ client.id }})
+</div>

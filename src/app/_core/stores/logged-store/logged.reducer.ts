@@ -19,4 +19,3 @@ export function reducer(state = initialState, action: All): LoggedState {
 	}
 }
 
-export const metaReducers: MetaReducer<any>[] = environment.production ? [] : [];
